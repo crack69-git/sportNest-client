@@ -1,4 +1,5 @@
-import React from "react";
+import { Button } from "@heroui/react";
+import Image from "next/image";
 
 const NavbarSection = () => {
   const links = (
@@ -11,15 +12,17 @@ const NavbarSection = () => {
     </>
   );
   return (
-    <div className="bg-[#003057] flex justify-between items-center text-white p-4 ">
-      <div>
-        <h3 className="text-2xl font-bold">SportsNest</h3>
+    <div className="flex justify-between items-center p-3 bg-[#003057] text-white">
+      <div className="flex gap-2">
+        <Image src="/logo.png" alt="Logo" width={40} height={40} />
+        <h2 className="text-2xl font-bold">SportNest</h2>
       </div>
       <div>
-        <ul className="flex space-x-4 font-semibold">{links}</ul>
+        <ul className="flex gap-4 ">{links}</ul>
       </div>
-      <div>
-        <button>Login</button>
+      <div className="flex gap-2">
+        <Button>Login</Button>
+        <Button variant="secondary">Register</Button>
       </div>
     </div>
   );

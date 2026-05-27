@@ -1,3 +1,11 @@
+import FeatureSection from "@/Components/Shared/FeatureSection";
+import HeroSection from "@/Components/Shared/HeroSection";
+
 export default function Home() {
-  return <div>home page</div>;
+  return (
+    <div>
+      <HeroSection />
+      <FeatureSection />
+    </div>
+  );
 }
