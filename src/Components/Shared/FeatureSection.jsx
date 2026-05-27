@@ -10,7 +10,7 @@ const FeatureSection = () => {
           Discover our top-rated facilities designed to meet all your sports and
           fitness needs.
         </p>
-        <p className="underline font-bold">View All</p>
+        <p className="underline font-bold min-w-fit">View All</p>
       </div>
       <div>
         <FeatureCardSection />

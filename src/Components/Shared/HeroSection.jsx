@@ -19,7 +19,7 @@ const HeroSection = () => {
             height: "60vh",
             backgroundRepeat: "no-repeat",
           }}
-          className="relative"
+          className="relative h-[500px]"
         >
           <div
             className="absolute inset-0"
@@ -27,7 +27,7 @@ const HeroSection = () => {
             aria-hidden="true"
           />
           <div className="relative z-10 flex items-center gap-8 w-11/12 mx-auto justify-center h-full p-8 text-white">
-            <div>
+            <div className="max-[1168px]:text-center max-[1168px]:items-center flex flex-col gap-5">
               <p className="bg-blue-900 w-fit   py-2 px-5 rounded-3xl font-semibold mb-4">
                 Ready to Perform
               </p>
@@ -47,11 +47,11 @@ const HeroSection = () => {
                   variant="outline"
                   className="text-white border-2 border-blue-900 rounded-lg text-xl p-6"
                 >
-                  Outline <gap-2></gap-2>
+                  Outline
                 </Button>
               </div>
             </div>
-            <div className="flex gap-4 ">
+            <div className="flex gap-4 max-[1168px]:hidden">
               <div className="relative top-9">
                 <Card className="w-100 bg-gray-700 p-7 ">
                   <Card.Header>
