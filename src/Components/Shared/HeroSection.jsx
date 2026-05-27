@@ -28,7 +28,7 @@ const HeroSection = () => {
           />
           <div className="relative z-10 flex items-center gap-8 w-11/12 mx-auto justify-center h-full p-8 text-white">
             <div>
-              <p className="bg-orange-500 w-fit   py-2 px-5 rounded-3xl font-semibold mb-4">
+              <p className="bg-blue-900 w-fit   py-2 px-5 rounded-3xl font-semibold mb-4">
                 Ready to Perform
               </p>
               <h1 className="text-7xl font-bold text-white">
@@ -40,12 +40,12 @@ const HeroSection = () => {
                 your next big win.
               </p>
               <div className="flex items-center  gap-3 mt-5">
-                <Button className="rounded-lg bg-orange-500 text-xl p-6">
+                <Button className="rounded-lg bg-blue-900 text-xl p-6">
                   Primary
                 </Button>
                 <Button
                   variant="outline"
-                  className="text-white border-white rounded-lg text-xl p-6"
+                  className="text-white border-2 border-blue-900 rounded-lg text-xl p-6"
                 >
                   Outline <gap-2></gap-2>
                 </Button>
