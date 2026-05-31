@@ -1,0 +1,219 @@
+"use client";
+import {
+  Description,
+  FieldError,
+  FieldGroup,
+  Fieldset,
+  Input,
+  Label,
+  TextField,
+  ListBox,
+  Select,
+  TextArea,
+  Button,
+  Separator,
+} from "@heroui/react";
+import { FloppyDisk } from "@gravity-ui/icons";
+import { Mail, MapPinCheckInside, Pencil, RotateCcw } from "lucide-react";
+import React, { useState } from "react";
+
+const AddFacility = () => {
+  const [facilityType, setFacilityType] = useState("");
+
+  const boxItem = (
+    <>
+      <ListBox.Item id="basketball" textValue="Basketball">
+        Basketball
+        <ListBox.ItemIndicator />
+      </ListBox.Item>
+      <ListBox.Item id="tennis" textValue="Tennis">
+        Tennis
+        <ListBox.ItemIndicator />
+      </ListBox.Item>
+      <ListBox.Item id="Badminton" textValue="Badminton">
+        Badminton
+        <ListBox.ItemIndicator />
+      </ListBox.Item>
+      <ListBox.Item id="Cricket" textValue="Cricket">
+        Cricket
+        <ListBox.ItemIndicator />
+      </ListBox.Item>
+      <ListBox.Item id="SwimmingPool" textValue="Swimming Pool">
+        Swimming Pool
+        <ListBox.ItemIndicator />
+      </ListBox.Item>
+    </>
+  );
+  const timeSlotItem = (
+    <>
+      <label className="cursor-pointer">
+        <input
+          type="checkbox"
+          name="timeslots"
+          value="6am"
+          className="peer sr-only"
+        />
+        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+          6.00 AM
+        </div>
+      </label>
+      <label className="cursor-pointer">
+        <input
+          type="checkbox"
+          name="timeslots"
+          value="9am"
+          className="peer sr-only"
+        />
+        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+          9.00 AM
+        </div>
+      </label>
+      <label className="cursor-pointer">
+        <input
+          type="checkbox"
+          name="timeslots"
+          value="12pm"
+          className="peer sr-only"
+        />
+        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+          12.00 PM
+        </div>
+      </label>
+      <label className="cursor-pointer">
+        <input
+          type="checkbox"
+          name="timeslots"
+          value="3pm"
+          className="peer sr-only"
+        />
+        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+          3.00 PM
+        </div>
+      </label>
+    </>
+  );
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!facilityType) {
+      alert("Please select a facility type.");
+      return;
+    }
+    console.log("Form submitted");
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+    // collect multiple selected timeslots (checkboxes named `timeslots`)
+    const timeslots = formData.getAll("timeslots");
+    if (timeslots.length) data.timeslots = timeslots;
+    console.log("Form Data:", data);
+  };
+  return (
+    <div>
+      <div className="flex items-center gap-3">
+        <div className="bg-orange-400 h-10 w-10 rounded-full flex items-center justify-center">
+          <Pencil className="text-white" />
+        </div>
+        <div>
+          <h2 className="text-2xl font-semibold">Basic Details</h2>
+        </div>
+      </div>
+      <form onSubmit={handleSubmit} className="mt-10">
+        <input type="hidden" name="facilitytype" value={facilityType} />
+        <Fieldset>
+          <FieldGroup className="grid grid-cols-4 gap-4">
+            <TextField isRequired name="facilityname" className="col-span-2">
+              <Label>Facility Name</Label>
+              <Input
+                placeholder="John Doe"
+                className="shadow-none border border-gray-300"
+              />
+            </TextField>
+            <Select
+              isRequired
+              className="col-span-2"
+              placeholder="Select one"
+              onSelectionChange={(keys) => {
+                if (keys instanceof Set) {
+                  const firstKey = Array.from(keys)[0];
+                  setFacilityType(firstKey ? String(firstKey) : "");
+                  return;
+                }
+                setFacilityType(keys ? String(keys) : "");
+              }}
+            >
+              <Label>Facility Type</Label>
+              <Select.Trigger>
+                <Select.Value />
+                <Select.Indicator />
+              </Select.Trigger>
+              <Select.Popover>
+                <ListBox>{boxItem}</ListBox>
+              </Select.Popover>
+            </Select>
+            <TextField isRequired name="imageLink" className="col-span-2">
+              <Label>Image Link</Label>
+              <Input
+                placeholder="https://example.com/image.jpg"
+                className="shadow-none border border-gray-300"
+              />
+            </TextField>
+            <TextField isRequired name="location" className="col-span-2">
+              <Label>Location</Label>
+              <Input
+                placeholder="City, State"
+                className="shadow-none border border-gray-300"
+              ></Input>
+            </TextField>
+            <TextField isRequired name="price" className="col-span-1">
+              <Label>Price/Hour($)</Label>
+              <Input
+                placeholder="$00.00"
+                className="shadow-none border border-gray-300"
+              />
+            </TextField>
+            <TextField isRequired name="capacity" className="col-span-1">
+              <Label>Capacity</Label>
+              <Input
+                placeholder="0"
+                className="shadow-none border border-gray-300"
+              />
+            </TextField>
+
+            <TextField isRequired name="description" className="col-span-4 ">
+              <Label>Description</Label>
+              <TextArea
+                placeholder="Unique features of your facility..."
+                className="shadow-none border border-gray-300"
+              />
+            </TextField>
+            <div className="col-span-4">
+              <Label>Available Time Slots</Label>
+              <div className="mt-2  gap-2 grid grid-cols-5">{timeSlotItem}</div>
+            </div>
+          </FieldGroup>
+          <Separator className="my-4 bg-gray-300 h-px" />
+          <div className="flex justify-between items-center">
+            <div className="flex items-center gap-3">
+              <Mail />
+              <p className="font-bold">
+                <span className="text-gray-600 font-normal">Owner Email: </span>
+                demo@gmail.com
+              </p>
+            </div>
+            <Fieldset.Actions>
+              <Button type="submit" className="bg-[#003057]">
+                <FloppyDisk />
+                Add Facility
+              </Button>
+              <Button type="reset" variant="secondary" className="text-red-500">
+                <RotateCcw />
+                Reset
+              </Button>
+            </Fieldset.Actions>
+          </div>
+        </Fieldset>
+      </form>
+    </div>
+  );
+};
+
+export default AddFacility;

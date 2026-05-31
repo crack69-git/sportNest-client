@@ -12,12 +12,12 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      suppressContentEditableWarning={true}
+      suppressHydrationWarning
       className={`${inter.variable} h-full antialiased`}
     >
-      <body className="">
+      <body className="flex min-h-screen flex-col">
         <NavbarSection />
-        <main>{children}</main>
+        <main className="flex-1">{children}</main>
         <FooterSection />
       </body>
     </html>

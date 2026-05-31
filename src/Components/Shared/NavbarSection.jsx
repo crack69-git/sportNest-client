@@ -2,17 +2,29 @@
 import { Button } from "@heroui/react";
 import { Menu } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 const NavbarSection = () => {
   const [state, setState] = useState(false);
+
   const links = (
     <>
-      <li>Home</li>
-      <li>All Facilities</li>
-      <li>My Bookings</li>
-      <li>Add-Facility</li>
-      <li>Manage My Facilities</li>
+      <Link href={"/"}>
+        <li>Home</li>
+      </Link>
+      <Link href={"/facilities"}>
+        <li>All Facilities</li>
+      </Link>
+      <Link href={"/bookings"}>
+        <li>My Bookings</li>
+      </Link>
+      <Link href={"/add-facility"}>
+        <li>Add-Facility</li>
+      </Link>
+      <Link href={"/manage-facilities"}>
+        <li>Manage My Facilities</li>
+      </Link>
     </>
   );
   return (
@@ -33,8 +45,12 @@ const NavbarSection = () => {
         <ul className="flex gap-4 max-[928px]:hidden">{links}</ul>
       </div>
       <div className="flex gap-2 max-sm:mt-5">
-        <Button>Login</Button>
-        <Button variant="secondary">Register</Button>
+        <Link href="/login">
+          <Button>Login</Button>
+        </Link>
+        <Link href="/register">
+          <Button variant="secondary">Register</Button>
+        </Link>
       </div>
     </div>
   );
