@@ -12,8 +12,9 @@ import {
   Separator,
 } from "@heroui/react";
 import { FloppyDisk } from "@gravity-ui/icons";
-import { Mail, MapPinCheckInside, Pencil, RotateCcw } from "lucide-react";
+import { ClockAlert, Mail, Pencil, RotateCcw } from "lucide-react";
 import React, { useState } from "react";
+import { authClient } from "@/lib/auth-client";
 
 const AddFacility = () => {
   const [facilityType, setFacilityType] = useState("");
@@ -59,11 +60,55 @@ const AddFacility = () => {
         <input
           type="checkbox"
           name="timeslots"
+          value="7am"
+          className="peer sr-only"
+        />
+        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+          7.00 AM
+        </div>
+      </label>
+      <label className="cursor-pointer">
+        <input
+          type="checkbox"
+          name="timeslots"
+          value="8am"
+          className="peer sr-only"
+        />
+        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+          8.00 AM
+        </div>
+      </label>
+      <label className="cursor-pointer">
+        <input
+          type="checkbox"
+          name="timeslots"
           value="9am"
           className="peer sr-only"
         />
         <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
           9.00 AM
+        </div>
+      </label>
+      <label className="cursor-pointer">
+        <input
+          type="checkbox"
+          name="timeslots"
+          value="10am"
+          className="peer sr-only"
+        />
+        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+          10.00 AM
+        </div>
+      </label>
+      <label className="cursor-pointer">
+        <input
+          type="checkbox"
+          name="timeslots"
+          value="11am"
+          className="peer sr-only"
+        />
+        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+          11.00 AM
         </div>
       </label>
       <label className="cursor-pointer">
@@ -88,8 +133,110 @@ const AddFacility = () => {
           3.00 PM
         </div>
       </label>
+      <label className="cursor-pointer">
+        <input
+          type="checkbox"
+          name="timeslots"
+          value="4pm"
+          className="peer sr-only"
+        />
+        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+          4.00 PM
+        </div>
+      </label>
+      <label className="cursor-pointer">
+        <input
+          type="checkbox"
+          name="timeslots"
+          value="5pm"
+          className="peer sr-only"
+        />
+        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+          5.00 PM
+        </div>
+      </label>
+      <label className="cursor-pointer">
+        <input
+          type="checkbox"
+          name="timeslots"
+          value="6pm"
+          className="peer sr-only"
+        />
+        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+          6.00 PM
+        </div>
+      </label>
+      <label className="cursor-pointer">
+        <input
+          type="checkbox"
+          name="timeslots"
+          value="7pm"
+          className="peer sr-only"
+        />
+        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+          7.00 PM
+        </div>
+      </label>
+      <label className="cursor-pointer">
+        <input
+          type="checkbox"
+          name="timeslots"
+          value="8pm"
+          className="peer sr-only"
+        />
+        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+          8.00 PM
+        </div>
+      </label>
+      <label className="cursor-pointer">
+        <input
+          type="checkbox"
+          name="timeslots"
+          value="9pm"
+          className="peer sr-only"
+        />
+        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+          9.00 PM
+        </div>
+      </label>
+      <label className="cursor-pointer">
+        <input
+          type="checkbox"
+          name="timeslots"
+          value="10pm"
+          className="peer sr-only"
+        />
+        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+          10.00 PM
+        </div>
+      </label>
+      <label className="cursor-pointer">
+        <input
+          type="checkbox"
+          name="timeslots"
+          value="11pm"
+          className="peer sr-only"
+        />
+        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+          11.00 PM
+        </div>
+      </label>
+      <label className="cursor-pointer">
+        <input
+          type="checkbox"
+          name="timeslots"
+          value="12pm"
+          className="peer sr-only"
+        />
+        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+          12.00 PM
+        </div>
+      </label>
     </>
   );
+
+  const { data: session } = authClient.useSession();
+  const user = session?.user;
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!facilityType) {
@@ -112,8 +259,6 @@ const AddFacility = () => {
     console.log("Response:", res);
     if (res.ok) {
       alert("Facility added successfully!");
-      e.currentTarget.reset();
-      setFacilityType("");
     } else {
       alert("Failed to add facility. Please try again.");
     }
@@ -199,7 +344,10 @@ const AddFacility = () => {
               />
             </TextField>
             <div className="col-span-4">
-              <Label>Available Time Slots</Label>
+              <Label className="flex items-center gap-3">
+                <ClockAlert />
+                Available Time Slots
+              </Label>
               <div className="mt-2  gap-2 grid grid-cols-5">{timeSlotItem}</div>
             </div>
           </FieldGroup>
@@ -209,7 +357,7 @@ const AddFacility = () => {
               <Mail />
               <p className="font-bold">
                 <span className="text-gray-600 font-normal">Owner Email: </span>
-                demo@gmail.com
+                {user?.email}
               </p>
             </div>
             <Fieldset.Actions>

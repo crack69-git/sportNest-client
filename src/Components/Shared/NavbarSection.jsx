@@ -1,4 +1,5 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import { Button } from "@heroui/react";
 import { Menu } from "lucide-react";
 import Image from "next/image";
@@ -7,6 +8,10 @@ import { useState } from "react";
 
 const NavbarSection = () => {
   const [state, setState] = useState(false);
+
+  const { data: session } = authClient.useSession();
+  // console.log(session.user);
+  const user = session?.user;
 
   const links = (
     <>
@@ -45,12 +50,28 @@ const NavbarSection = () => {
         <ul className="flex gap-4 max-[928px]:hidden">{links}</ul>
       </div>
       <div className="flex gap-2 max-sm:mt-5">
-        <Link href="/login">
-          <Button>Login</Button>
-        </Link>
-        <Link href="/register">
-          <Button variant="secondary">Register</Button>
-        </Link>
+        {user ? (
+          <div>
+            <Link href="/">
+              <Image
+                src={user.image}
+                alt="Profile Picture"
+                width={40}
+                height={40}
+                className="contain-content rounded-full"
+              />
+            </Link>
+          </div>
+        ) : (
+          <>
+            <Link href="/login">
+              <Button>Login</Button>
+            </Link>
+            <Link href="/register">
+              <Button variant="secondary">Register</Button>
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
