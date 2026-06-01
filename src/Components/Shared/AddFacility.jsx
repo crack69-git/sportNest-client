@@ -1,7 +1,5 @@
 "use client";
 import {
-  Description,
-  FieldError,
   FieldGroup,
   Fieldset,
   Input,
@@ -92,7 +90,7 @@ const AddFacility = () => {
       </label>
     </>
   );
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!facilityType) {
       alert("Please select a facility type.");
@@ -104,7 +102,22 @@ const AddFacility = () => {
     // collect multiple selected timeslots (checkboxes named `timeslots`)
     const timeslots = formData.getAll("timeslots");
     if (timeslots.length) data.timeslots = timeslots;
-    console.log("Form Data:", data);
+    const res = await fetch("http://localhost:5000/product", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    console.log("Response:", res);
+    if (res.ok) {
+      alert("Facility added successfully!");
+      e.currentTarget.reset();
+      setFacilityType("");
+    } else {
+      alert("Failed to add facility. Please try again.");
+    }
+    const resData = await res.json();
   };
   return (
     <div>

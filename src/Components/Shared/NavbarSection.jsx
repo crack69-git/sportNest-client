@@ -13,7 +13,7 @@ const NavbarSection = () => {
       <Link href={"/"}>
         <li>Home</li>
       </Link>
-      <Link href={"/facilities"}>
+      <Link href={"/all-facilities"}>
         <li>All Facilities</li>
       </Link>
       <Link href={"/bookings"}>
