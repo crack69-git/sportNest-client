@@ -14,27 +14,24 @@ import {
 } from "@heroui/react";
 import { UserKey } from "lucide-react";
 import Image from "next/image";
+import { authClient } from "@/lib/auth-client";
+import { redirect } from "next/navigation";
 
 const LoginSection = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
-    const res = await fetch("http://localhost:5000/user", {
-      method: "GET",
+    const user = Object.fromEntries(formData.entries());
+    console.log(user);
+    const { data, error } = await authClient.signIn.email({
+      email: user.email, // required
+      password: user.password, // required
+      rememberMe: true,
+      callbackURL: "/",
     });
-    const result = await res.json();
-    // console.log("Response:", result);
-
-    const user = result.find(
-      (u) => u.email === data.email && u.password === data.password,
-    );
-    if (user) {
-      alert("Login successful!");
-      window.location.href = "/";
-      // You can redirect the user to a dashboard or home page here
-    } else {
-      alert("Invalid email or password. Please try again.");
+    if (data) {
+      alert("Login successful! ");
+      redirect("/");
     }
   };
   return (
