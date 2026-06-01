@@ -10,25 +10,29 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import { authClient } from "@/lib/auth-client";
+import { redirect } from "next/navigation";
+import Link from "next/link";
+
 const RegisterPage = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
-    console.log("Form Data:", data);
-    const res = await fetch("http://localhost:5000/user", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
+    const user = Object.fromEntries(formData.entries());
+    // const { name, email, imageLink, password } = data;
+
+    console.log(user);
+    const { data, error } = await authClient.signUp.email({
+      name: user.name, // required
+      email: user.email, // required
+      password: user.password, // required
+      image: user.imageLink,
+      callbackURL: "/",
     });
-    if (!res.ok) {
-      alert("User already exists or there was an error. Please try again.");
-      return;
+    if (data) {
+      alert("Registration successful! ");
+      redirect("/login");
     }
-    const result = await res.json();
-    console.log("Response:", result);
   };
   return (
     <div className="bg-[#003057] text-white p-4 rounded-lg w-3/12 mx-auto my-20">
@@ -75,6 +79,12 @@ const RegisterPage = () => {
             Reset
           </Button>
         </div>
+        <p className="flex ">
+          Already Have an Account?{" "}
+          <Link className="underline active:text-blue-500" href="/login">
+            Login
+          </Link>
+        </p>
       </Form>
     </div>
   );
