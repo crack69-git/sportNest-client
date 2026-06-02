@@ -8,11 +8,11 @@ import React from "react";
 
 const DetailsPage = async ({ params }) => {
   const { id } = await params;
-  console.log(id);
+  // console.log(id);
   const facility = await fetch(`http://localhost:5000/product/${id}`);
   //   const facilityData = await facility.json();
   const data = await facility.json();
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="bg-gray-100 min-h-[calc(100vh-8rem)]">
