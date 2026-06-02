@@ -14,6 +14,7 @@ import {
   TextField,
 } from "@heroui/react";
 import { authClient } from "@/lib/auth-client";
+import { redirect } from "next/navigation";
 
 const BokkingForm = ({ data }) => {
   const [totalPrice, setTotalPrice] = useState(0);
@@ -32,7 +33,7 @@ const BokkingForm = ({ data }) => {
     console.log("currentDate", currentDate);
     // console.log("data", data);
     // console.log("data", formdata);
-    const bokingData = {
+    const bookingData = {
       id: data._id,
       email: session?.user?.email,
       facilitytype: data.facilitytype,
@@ -47,7 +48,22 @@ const BokkingForm = ({ data }) => {
       totalPrice: totalPrice,
       status: "pending",
     };
-    console.log("bookingData", bokingData);
+    console.log("bookingData", bookingData);
+    const booking = fetch("http://localhost:5000/mybookings", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(bookingData),
+    });
+    if (booking) {
+      alert("Booking successful!");
+      redirect("/my-booking");
+    } else {
+      alert("Booking failed. Please try again.");
+    }
+    // const bookingDataResponse = booking.json();
+    // console.log("bookingDataResponse", bookingDataResponse);
   };
 
   return (
