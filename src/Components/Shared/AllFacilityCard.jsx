@@ -1,14 +1,23 @@
 import { Button, Card, Separator } from "@heroui/react";
 import { MapPin, Users } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const AllFacilityCard = ({ facility }) => {
-  const { facilitytype, facilityname, imageLink, location, price, capacity } =
-    facility;
+  const {
+    _id,
+    facilitytype,
+    facilityname,
+    imageLink,
+    location,
+    price,
+    capacity,
+  } = facility;
+  console.log(_id);
   return (
     <div className="flex flex-wrap gap-4">
-      <Card className="w-full h-fit gap-2 border">
+      <Card className="w-full h-full gap-2 border">
         <Image
           src={imageLink}
           alt="Turf Image"
@@ -17,11 +26,11 @@ const AllFacilityCard = ({ facility }) => {
           className="w-fit mx-auto h-36 rounded-2xl"
         />
         <Card.Header>
-          <Card.Title className="bg-blue-200 w-fit p-2 rounded-4xl">
+          <Card.Title className="bg-blue-200 w-fit px-4 mt-4 rounded-4xl">
             {facilitytype}
           </Card.Title>
-          <div className="flex justify-between items-center">
-            <div>
+          <div className="flex justify-between items-start ">
+            <div className="min-h-20">
               <h4 className="text-2xl font-bold">{facilityname}</h4>
               <p className="flex items-center gap-3">
                 <MapPin /> {location}
@@ -39,7 +48,9 @@ const AllFacilityCard = ({ facility }) => {
             <Users />
             Upto {capacity} People
           </p>
-          <Button className="bg-[#003057]">Book Now</Button>
+          <Link href={`/all-facilities/${_id}`}>
+            <Button className="bg-[#003057]">Book Now</Button>
+          </Link>
         </div>
 
         <Card.Footer className="flex gap-2"></Card.Footer>

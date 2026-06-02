@@ -1,0 +1,66 @@
+import BokkingForm from "@/Components/Shared/BokkingForm";
+import BookSection from "@/Components/Shared/BookSection";
+import StartTime from "@/Components/Shared/StartTime";
+import { Separator } from "@heroui/react";
+import { MapPin, User } from "lucide-react";
+import Image from "next/image";
+import React from "react";
+
+const DetailsPage = async ({ params }) => {
+  const { id } = await params;
+  console.log(id);
+  const facility = await fetch(`http://localhost:5000/product/${id}`);
+  //   const facilityData = await facility.json();
+  const data = await facility.json();
+  console.log(data);
+
+  return (
+    <div className="bg-gray-100 min-h-[calc(100vh-8rem)]">
+      <div className="w-11/12 mx-auto pt-10">
+        <div className="grid grid-cols-3 gap-5 pb-10">
+          <div>
+            <Image
+              src={data.imageLink}
+              alt="Turf Image"
+              width={400}
+              height={200}
+              className="rounded-2xl"
+            />
+          </div>
+          <div className="bg-white rounded-3xl p-5 border">
+            <h1 className="text-3xl font-bold">{data.facilityname}</h1>
+            <p className="text-gray-600 flex items-center gap-2 mt-2">
+              <MapPin></MapPin>
+              {data.location}
+            </p>
+            <p className="text-gray-600 flex items-center gap-2 mt-2">
+              <User></User>Maximum {data.capacity} People
+            </p>
+            <p className="text-gray-900 font-semibold mt-5">About This Page </p>
+            <p className="text-gray-600 flex items-center gap-2 mt-2">
+              {data.description}
+            </p>
+            <Separator className="my-5 bg-gray-300 " />
+            <p className="font-semibold">
+              <span className="text-gray-500">Type: </span>
+              {data.facilitytype}
+            </p>
+            <p className="font-semibold">
+              <span className="text-gray-500">Hourly Rate: </span>${data.price}
+            </p>
+            {/* <p className="font-semibold">
+              <span className="text-gray-500">Type: </span>
+              {data.facilitytype}
+            </p> */}
+          </div>
+          <div className="bg-white rounded-3xl p-5 border">
+            <h4 className="font-semibold text-lg mb-5">Book yours Now</h4>
+            <BokkingForm data={data}></BokkingForm>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default DetailsPage;

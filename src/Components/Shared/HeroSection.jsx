@@ -26,7 +26,7 @@ const HeroSection = () => {
             style={{ backgroundColor: "rgba(0,0,0,0.45)" }}
             aria-hidden="true"
           />
-          <div className="relative z-10 flex items-center gap-8 w-11/12 mx-auto justify-center h-full p-8 text-white">
+          <div className="relative contain z-10 flex items-center gap-8 w-11/12 mx-auto justify-center h-full p-8 text-white">
             <div className="max-[1168px]:text-center max-[1168px]:items-center flex flex-col gap-5">
               <p className="bg-blue-900 w-fit   py-2 px-5 rounded-3xl font-semibold mb-4">
                 Ready to Perform
