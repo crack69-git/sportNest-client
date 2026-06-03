@@ -1,9 +1,29 @@
-import { Button, Card, CloseButton, Separator } from "@heroui/react";
+"use client";
+import { Button, Card, CloseButton, Modal, Separator } from "@heroui/react";
+import { CircleParkingOffIcon } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 const MyBookingCard = ({ data }) => {
-  console.log(data);
+  const router = useRouter();
+
+  const handleCencel = async (bookingId) => {
+    const res = await fetch(`http://localhost:5000/mybookings/${bookingId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await res.json();
+    console.log(data);
+    if (res.ok) {
+      alert("Booking cancelled successfully");
+      router.refresh();
+    } else {
+      alert("Failed to cancel booking");
+    }
+  };
 
   return (
     <>
@@ -64,9 +84,44 @@ const MyBookingCard = ({ data }) => {
                   Booked for: {booking.hours} Hours
                 </span>
               </div>
-              <Button className="w-full sm:w-auto bg-white text-red-600 border border-red-600 hover:bg-red-600 hover:text-white transition-colors duration-300">
-                Cencel Booking
-              </Button>
+              <Modal>
+                <Button variant="secondary" className="text-red-600">
+                  Cancel Booking
+                </Button>
+                <Modal.Backdrop isDismissable={false}>
+                  <Modal.Container>
+                    <Modal.Dialog className="sm:max-w-[360px]">
+                      <Modal.CloseTrigger />
+                      <Modal.Header>
+                        <Modal.Icon className="bg-default text-foreground">
+                          <CircleParkingOffIcon className="size-5" />
+                        </Modal.Icon>
+                        <Modal.Heading>Cancel Booking? </Modal.Heading>
+                        <p className="text-sm leading-5 text-muted">
+                          Please confirm if you want to cancel this booking.
+                          This action cannot be undone.
+                        </p>
+                      </Modal.Header>
+                      {/* <Modal.Body>
+                        <p>
+                          Try clicking outside this modal on the overlay - it
+                          won't close. You must use the close button or press
+                          ESC to dismiss it.
+                        </p>
+                      </Modal.Body> */}
+                      <Modal.Footer>
+                        <Button
+                          onClick={() => handleCencel(booking._id)}
+                          className="w-full bg-red-600"
+                          slot="close"
+                        >
+                          Cancel Booking
+                        </Button>
+                      </Modal.Footer>
+                    </Modal.Dialog>
+                  </Modal.Container>
+                </Modal.Backdrop>
+              </Modal>
             </Card.Footer>
           </div>
         </Card>
