@@ -35,9 +35,11 @@ const BokkingForm = ({ data }) => {
     // console.log("data", formdata);
     const bookingData = {
       id: data._id,
+      email_id: session?.user?.id,
       email: session?.user?.email,
       facilitytype: data.facilitytype,
       facilityname: data.facilityname,
+      image: data.imageLink,
       price: data.price,
       capacity: data.capacity,
       location: data.location,
@@ -82,6 +84,7 @@ const BokkingForm = ({ data }) => {
           id="hours"
           placeholder="Enter hours"
           type="number"
+          min="1"
         />
       </div>
       <div>

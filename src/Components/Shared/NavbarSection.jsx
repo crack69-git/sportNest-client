@@ -21,7 +21,7 @@ const NavbarSection = () => {
       <Link href={"/all-facilities"}>
         <li>All Facilities</li>
       </Link>
-      <Link href={"/bookings"}>
+      <Link href={"/my-booking"}>
         <li>My Bookings</li>
       </Link>
       <Link href={"/add-facility"}>
@@ -51,7 +51,7 @@ const NavbarSection = () => {
       </div>
       <div className="flex gap-2 max-sm:mt-5">
         {user ? (
-          <div>
+          <div className="flex gap-3 items-center">
             <Link href="/">
               <Image
                 src={user.image}
@@ -61,6 +61,14 @@ const NavbarSection = () => {
                 className="contain-content rounded-full"
               />
             </Link>
+            <button
+              onClick={async () => {
+                await authClient.signOut();
+              }}
+              className="bg-white hover:bg-gray-200 text-black py-2 px-4 rounded"
+            >
+              Logout
+            </button>
           </div>
         ) : (
           <>
