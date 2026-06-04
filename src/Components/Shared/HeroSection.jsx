@@ -28,10 +28,10 @@ const HeroSection = () => {
           />
           <div className="relative contain z-10 flex items-center gap-8 w-11/12 mx-auto justify-center h-full p-8 text-white">
             <div className="max-[1168px]:text-center max-[1168px]:items-center flex flex-col gap-5">
-              <p className="bg-blue-900 w-fit   py-2 px-5 rounded-3xl font-semibold mb-4">
+              <p className="bg-blue-900 w-fit max-sm:hidden py-2 px-5 rounded-3xl font-semibold ">
                 Ready to Perform
               </p>
-              <h1 className="text-7xl font-bold text-white">
+              <h1 className="max-sm:text-4xl text-7xl mt-5 font-bold text-white">
                 Unleash Your Game
               </h1>
               <p className="mt-2">
@@ -39,15 +39,9 @@ const HeroSection = () => {
                 high-performance venues designed for precision, momentum, and
                 your next big win.
               </p>
-              <div className="flex items-center  gap-3 mt-5">
-                <Button className="rounded-lg bg-blue-900 text-xl p-6">
-                  Primary
-                </Button>
-                <Button
-                  variant="outline"
-                  className="text-white border-2 border-blue-900 rounded-lg text-xl p-6"
-                >
-                  Outline
+              <div className="flex items-center max-sm:mt-2 gap-3 mt-5">
+                <Button className=" rounded-lg bg-blue-900 text-xl p-6">
+                  Explore More
                 </Button>
               </div>
             </div>
