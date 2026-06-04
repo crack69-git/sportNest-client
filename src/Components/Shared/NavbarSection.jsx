@@ -8,11 +8,10 @@ import { useState } from "react";
 
 const NavbarSection = () => {
   const [state, setState] = useState(false);
-
-  const { data: session } = authClient.useSession();
-  console.log(session?.user);
+  const { data: session, isPending } = authClient.useSession();
+  // console.log(isPending);
   const users = session?.user;
-  console.log("users:", users);
+  // console.log("users:", users);
 
   const links = (
     <>
@@ -51,7 +50,12 @@ const NavbarSection = () => {
         <ul className="flex gap-4 max-[928px]:hidden">{links}</ul>
       </div>
       <div className="flex gap-2 max-sm:mt-5">
-        {users ? (
+        {isPending ? (
+          <div className="flex items-center gap-2">
+            <span className="animate-spin border-2 border-white border-t-transparent rounded-full w-6 h-6"></span>
+            <p>Loading...</p>
+          </div>
+        ) : users ? (
           <div className="flex gap-3 items-center">
             <Link href="/">
               <Image
