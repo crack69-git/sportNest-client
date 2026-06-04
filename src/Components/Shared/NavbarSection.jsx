@@ -10,8 +10,9 @@ const NavbarSection = () => {
   const [state, setState] = useState(false);
 
   const { data: session } = authClient.useSession();
-  // console.log(session.user);
-  const user = session?.user;
+  console.log(session?.user);
+  const users = session?.user;
+  console.log("users:", users);
 
   const links = (
     <>
@@ -27,7 +28,7 @@ const NavbarSection = () => {
       <Link href={"/add-facility"}>
         <li>Add-Facility</li>
       </Link>
-      <Link href={"/manage-facilities"}>
+      <Link href={"/manage-facility"}>
         <li>Manage My Facilities</li>
       </Link>
     </>
@@ -50,11 +51,11 @@ const NavbarSection = () => {
         <ul className="flex gap-4 max-[928px]:hidden">{links}</ul>
       </div>
       <div className="flex gap-2 max-sm:mt-5">
-        {user ? (
+        {users ? (
           <div className="flex gap-3 items-center">
             <Link href="/">
               <Image
-                src={user.image}
+                src={users.image}
                 alt="Profile Picture"
                 width={40}
                 height={40}

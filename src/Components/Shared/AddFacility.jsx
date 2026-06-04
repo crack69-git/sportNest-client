@@ -15,8 +15,10 @@ import { FloppyDisk } from "@gravity-ui/icons";
 import { ClockAlert, Mail, Pencil, RotateCcw } from "lucide-react";
 import React, { useState } from "react";
 import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
 
 const AddFacility = () => {
+  const router = useRouter();
   const [facilityType, setFacilityType] = useState("");
 
   const boxItem = (
@@ -237,6 +239,7 @@ const AddFacility = () => {
 
   const { data: session } = authClient.useSession();
   const user = session?.user;
+  const userId = session?.user.id;
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!facilityType) {
@@ -249,6 +252,7 @@ const AddFacility = () => {
     // collect multiple selected timeslots (checkboxes named `timeslots`)
     const timeslots = formData.getAll("timeslots");
     if (timeslots.length) data.timeslots = timeslots;
+    data.userId = userId;
     const res = await fetch("http://localhost:5000/product", {
       method: "POST",
       headers: {
@@ -259,6 +263,7 @@ const AddFacility = () => {
     console.log("Response:", res);
     if (res.ok) {
       alert("Facility added successfully!");
+      router.refresh();
     } else {
       alert("Failed to add facility. Please try again.");
     }
