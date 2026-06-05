@@ -17,14 +17,14 @@ const DetailsPage = async ({ params }) => {
   return (
     <div className="bg-gray-100 min-h-[calc(100vh-8rem)]">
       <div className="w-11/12 mx-auto pt-10">
-        <div className="grid grid-cols-3 gap-5 pb-10">
+        <div className="grid max-md:grid-cols-1 grid-cols-3 gap-5 pb-10">
           <div>
             <Image
               src={data.imageLink}
               alt="Turf Image"
               width={400}
               height={200}
-              className="rounded-2xl"
+              className="rounded-2xl mx-auto"
             />
           </div>
           <div className="bg-white rounded-3xl p-5 border">

@@ -26,7 +26,7 @@ const DeleteModal = ({ id }) => {
         Delete
       </Button>
       <Modal.Backdrop>
-        <Modal.Container>
+        <Modal.Container scroll="inside">
           <Modal.Dialog className="sm:max-w-[360px]">
             <Modal.CloseTrigger />
             <Modal.Header>

@@ -73,8 +73,8 @@ const EditModal = ({ facility, id }) => {
         Edit
       </Button>
       <Modal.Backdrop>
-        <Modal.Container>
-          <Modal.Dialog className="sm:max-w-[360px]">
+        <Modal.Container scroll="inside">
+          <Modal.Dialog className="sm:max-w-[360px] max-h-[90vh]">
             <Modal.CloseTrigger />
             <Modal.Header>
               <Modal.Icon className="bg-default text-foreground">
@@ -83,7 +83,7 @@ const EditModal = ({ facility, id }) => {
             </Modal.Header>
             <Modal.Body>
               {" "}
-              <Form className="w-full max-w-96" onSubmit={onSubmit}>
+              <Form className="w-full max-w-96 " onSubmit={onSubmit}>
                 <Fieldset>
                   <Fieldset.Legend>Edit</Fieldset.Legend>
                   <Description>Edit your facility information.</Description>

@@ -11,12 +11,12 @@ const MyBookingPage = async () => {
     headers: await headers(), // you need to pass the headers object.
   });
   const userId = session?.user?.id;
-  console.log("session", userId);
+  // console.log("session", userId);
   const fetchMyBookings = await fetch(
     `http://localhost:5000/mybookings/${userId}`,
   );
   const data = await fetchMyBookings.json();
-  console.log(data);
+  // console.log(data);
 
   // const toogle = (
   //   <>

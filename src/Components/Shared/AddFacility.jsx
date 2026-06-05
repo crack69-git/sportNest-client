@@ -282,8 +282,12 @@ const AddFacility = () => {
       <form onSubmit={handleSubmit} className="mt-10">
         <input type="hidden" name="facilitytype" value={facilityType} />
         <Fieldset>
-          <FieldGroup className="grid grid-cols-4 gap-4">
-            <TextField isRequired name="facilityname" className="col-span-2">
+          <FieldGroup className="grid max-sm:grid-cols-2 grid-cols-4 gap-4">
+            <TextField
+              isRequired
+              name="facilityname"
+              className="max-sm:col-span-3 col-span-2"
+            >
               <Label>Facility Name</Label>
               <Input
                 placeholder="John Doe"
@@ -292,7 +296,7 @@ const AddFacility = () => {
             </TextField>
             <Select
               isRequired
-              className="col-span-2"
+              className="max-sm:col-span-3 col-span-2"
               placeholder="Select one"
               onSelectionChange={(keys) => {
                 if (keys instanceof Set) {
@@ -319,21 +323,33 @@ const AddFacility = () => {
                 className="shadow-none border border-gray-300"
               />
             </TextField>
-            <TextField isRequired name="location" className="col-span-2">
+            <TextField
+              isRequired
+              name="location"
+              className="max-sm:col-span-3 col-span-2"
+            >
               <Label>Location</Label>
               <Input
                 placeholder="City, State"
                 className="shadow-none border border-gray-300"
               ></Input>
             </TextField>
-            <TextField isRequired name="price" className="col-span-1">
+            <TextField
+              isRequired
+              name="price"
+              className="max-sm:col-span-3 col-span-1"
+            >
               <Label>Price/Hour($)</Label>
               <Input
                 placeholder="$00.00"
                 className="shadow-none border border-gray-300"
               />
             </TextField>
-            <TextField isRequired name="capacity" className="col-span-1">
+            <TextField
+              isRequired
+              name="capacity"
+              className="max-sm:col-span-3 col-span-1"
+            >
               <Label>Capacity</Label>
               <Input
                 placeholder="0"
@@ -341,7 +357,11 @@ const AddFacility = () => {
               />
             </TextField>
 
-            <TextField isRequired name="description" className="col-span-4 ">
+            <TextField
+              isRequired
+              name="description"
+              className="max-sm:col-span-3 col-span-4 "
+            >
               <Label>Description</Label>
               <TextArea
                 placeholder="Unique features of your facility..."
@@ -353,18 +373,13 @@ const AddFacility = () => {
                 <ClockAlert />
                 Available Time Slots
               </Label>
-              <div className="mt-2  gap-2 grid grid-cols-5">{timeSlotItem}</div>
+              <div className="mt-2  gap-2 grid max-sm:grid-cols-3 grid-cols-5">
+                {timeSlotItem}
+              </div>
             </div>
           </FieldGroup>
           <Separator className="my-4 bg-gray-300 h-px" />
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <Mail />
-              <p className="font-bold">
-                <span className="text-gray-600 font-normal">Owner Email: </span>
-                {user?.email}
-              </p>
-            </div>
+          <div className="flex max-sm:flex-col-reverse  justify-between items-center">
             <Fieldset.Actions>
               <Button type="submit" className="bg-[#003057]">
                 <FloppyDisk />

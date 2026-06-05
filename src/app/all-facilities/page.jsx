@@ -27,8 +27,12 @@ const AllFacilities = async () => {
           Discover and book high-performance venues for your next match. From
           professional tennis courts to FIFA-standard pitches.
         </p>
-        <div className="grid grid-cols-6 gap-4 items-center bg-gray-300 p-6 rounded-3xl border border-gray-400">
-          <SearchField aria-label="" name="search" className="col-span-3">
+        <div className="grid max-sm:grid-cols-1 grid-cols-6 gap-4 items-center bg-gray-300 p-6 rounded-3xl border border-gray-400">
+          <SearchField
+            aria-label=""
+            name="search"
+            className="max-sm:col-span-1 col-span-3"
+          >
             <SearchField.Group>
               <SearchField.SearchIcon />
               <SearchField.Input className="" placeholder="Search..." />
@@ -113,7 +117,7 @@ const AllFacilities = async () => {
             Apply filters
           </Button>
         </div>
-        <div className="grid grid-cols-4 gap-6 py-6">
+        <div className="grid max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3 grid-cols-4 gap-6 py-6">
           {/* //cards section */}
           {data.map((facility) => (
             <AllFacilityCard key={facility._id} facility={facility} />
