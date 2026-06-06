@@ -242,14 +242,8 @@ const AddFacility = () => {
   const userId = session?.user.id;
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!facilityType) {
-      alert("Please select a facility type.");
-      return;
-    }
-    // console.log("Form submitted");
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
-    // collect multiple selected timeslots (checkboxes named `timeslots`)
     const timeslots = formData.getAll("timeslots");
     if (timeslots.length) data.timeslots = timeslots;
     data.userId = userId;
@@ -263,12 +257,11 @@ const AddFacility = () => {
       },
       body: JSON.stringify(data),
     });
-    // console.log("Response:", res);
     if (res.ok) {
-      alert("Facility added successfully!");
+      toast.success("Facility added successfully!");
       router.refresh();
     } else {
-      alert("Failed to add facility. Please try again.");
+      toast.error("Failed to add facility. Please try again.");
     }
     const resData = await res.json();
   };

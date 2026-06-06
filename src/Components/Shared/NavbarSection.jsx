@@ -58,14 +58,20 @@ const NavbarSection = () => {
         ) : users ? (
           <div className="flex gap-3 items-center">
             <Link href="/">
-              <Image
-                src={users.image}
-                referrerPolicy="no-referrer"
-                alt="Profile Picture"
-                width={40}
-                height={40}
-                className="contain-content rounded-full"
-              />
+              {users.image ? (
+                <Image
+                  src={users.image}
+                  referrerPolicy="no-referrer"
+                  alt="Profile Picture"
+                  width={40}
+                  height={40}
+                  className="contain-content rounded-full"
+                />
+              ) : (
+                <p className="p-2 bg-white text-black rounded-full">
+                  {users.name[0]}
+                </p>
+              )}
             </Link>
             <button
               onClick={async () => {

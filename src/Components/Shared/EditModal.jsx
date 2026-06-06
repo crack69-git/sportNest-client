@@ -60,10 +60,10 @@ const EditModal = ({ facility, id }) => {
     });
     // console.log(res);
     if (res.ok) {
-      alert("Facility updated successfully!");
+      toast.success("Facility updated successfully!");
       router.refresh();
     } else {
-      alert("Failed to update facility. Please try again.");
+      toast.error("Failed to update facility. Please try again.");
     }
   };
 

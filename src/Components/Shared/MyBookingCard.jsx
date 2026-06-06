@@ -22,10 +22,10 @@ const MyBookingCard = ({ data }) => {
     const data = await res.json();
     // console.log(data);
     if (res.ok) {
-      alert("Booking cancelled successfully");
+      toast.success("Booking cancelled successfully");
       router.refresh();
     } else {
-      alert("Failed to cancel booking");
+      toast.error("Failed to cancel booking");
     }
   };
 

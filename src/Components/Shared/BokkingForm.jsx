@@ -61,13 +61,11 @@ const BokkingForm = ({ data }) => {
       body: JSON.stringify(bookingData),
     });
     if (booking) {
-      alert("Booking successful!");
+      toast.success("Booking successful!");
       redirect("/my-booking");
     } else {
-      alert("Booking failed. Please try again.");
+      toast.error("Booking failed. Please try again.");
     }
-    // const bookingDataResponse = booking.json();
-    // console.log("bookingDataResponse", bookingDataResponse);
   };
 
   return (

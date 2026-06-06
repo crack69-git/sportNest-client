@@ -24,15 +24,7 @@ const MyBookingPage = async () => {
     },
   );
   const data = await fetchMyBookings.json();
-  // console.log(data);
 
-  // const toogle = (
-  //   <>
-  //     <li className="bg-[#003057] text-white px-8 rounded-3xl">All</li>
-  //     <li className="bg-[#003057] text-white px-8 rounded-3xl">Confirmed</li>
-  //     <li className="bg-[#003057] text-white px-8 rounded-3xl">Pending</li>
-  //   </>
-  // );
   return (
     <div className="bg-gray-100 min-h-[calc(90vh-25px)] py-8">
       <div className="w-11/12 mx-auto">

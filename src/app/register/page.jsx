@@ -27,8 +27,10 @@ const RegisterPage = () => {
       callbackURL: "/",
     });
     if (data) {
-      alert("Registration successful! ");
+      toast.success("Registration successful! ");
       redirect("/login");
+    } else {
+      toast.error(error.message || "Registration failed. Please try again.");
     }
   };
   return (
@@ -66,6 +68,7 @@ const RegisterPage = () => {
         <TextField isRequired minLength={8} name="password" type="password">
           <Label className="text-white text-lg">Password</Label>
           <Input placeholder="Enter your password" />
+          <FieldError />
         </TextField>
         <div className="flex gap-2">
           <Button type="submit">

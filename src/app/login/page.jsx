@@ -16,6 +16,7 @@ import { UserKey } from "lucide-react";
 import Image from "next/image";
 import { authClient } from "@/lib/auth-client";
 import { redirect } from "next/navigation";
+import { Bounce, toast } from "react-toastify";
 
 const LoginSection = () => {
   const onSubmit = async (e) => {
@@ -30,8 +31,30 @@ const LoginSection = () => {
       callbackURL: "/",
     });
     if (data) {
-      alert("Login successful! ");
+      toast.success("Logged in successfully!", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
       redirect("/");
+    } else {
+      toast.error(error.message || "Login failed. Please try again.", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
     }
   };
   const handleGoogleSignIn = async () => {

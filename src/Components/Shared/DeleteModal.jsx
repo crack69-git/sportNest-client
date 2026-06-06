@@ -17,10 +17,10 @@ const DeleteModal = ({ id }) => {
       },
     });
     if (res.ok) {
-      alert("Facility deleted successfully");
+      toast.success("Facility deleted successfully");
       router.refresh();
     } else {
-      alert("Failed to delete the facility");
+      toast.error("Failed to delete the facility");
     }
   };
   return (

@@ -1,4 +1,5 @@
 import AllFacilityCard from "@/Components/Shared/AllFacilityCard";
+import { auth } from "@/lib/auth";
 import {
   Label,
   SearchField,
@@ -10,6 +11,7 @@ import {
   Separator,
 } from "@heroui/react";
 import { CheckLine, Group, MapPin, Users } from "lucide-react";
+import { headers } from "next/headers";
 import Image from "next/image";
 import React from "react";
 
