@@ -52,9 +52,9 @@ const AddFacility = () => {
           type="checkbox"
           name="timeslots"
           value="6am"
-          className="peer sr-only"
+          className="peer sr-only "
         />
-        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+        <div className="h-full border p-3 dark:border dark:border-gray-700 rounded-lg peer-checked:bg-emerald-50 peer-checked:border-emerald-500 dark:peer-checked:bg-emerald-900">
           6.00 AM
         </div>
       </label>
@@ -65,7 +65,7 @@ const AddFacility = () => {
           value="7am"
           className="peer sr-only"
         />
-        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+        <div className="h-full border p-3 dark:border dark:border-gray-700 rounded-lg peer-checked:bg-emerald-50 peer-checked:border-emerald-500 dark:peer-checked:bg-emerald-900">
           7.00 AM
         </div>
       </label>
@@ -76,7 +76,7 @@ const AddFacility = () => {
           value="8am"
           className="peer sr-only"
         />
-        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+        <div className="h-full border p-3 dark:border dark:border-gray-700 rounded-lg peer-checked:bg-emerald-50 peer-checked:border-emerald-500 dark:peer-checked:bg-emerald-900">
           8.00 AM
         </div>
       </label>
@@ -87,7 +87,7 @@ const AddFacility = () => {
           value="9am"
           className="peer sr-only"
         />
-        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+        <div className="h-full border p-3 dark:border dark:border-gray-700 rounded-lg peer-checked:bg-emerald-50 peer-checked:border-emerald-500 dark:peer-checked:bg-emerald-900">
           9.00 AM
         </div>
       </label>
@@ -98,7 +98,7 @@ const AddFacility = () => {
           value="10am"
           className="peer sr-only"
         />
-        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+        <div className="h-full border p-3 dark:border dark:border-gray-700 rounded-lg peer-checked:bg-emerald-50 peer-checked:border-emerald-500 dark:peer-checked:bg-emerald-900">
           10.00 AM
         </div>
       </label>
@@ -109,7 +109,7 @@ const AddFacility = () => {
           value="11am"
           className="peer sr-only"
         />
-        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+        <div className="h-full border p-3 dark:border dark:border-gray-700 rounded-lg peer-checked:bg-emerald-50 peer-checked:border-emerald-500 dark:peer-checked:bg-emerald-900">
           11.00 AM
         </div>
       </label>
@@ -120,7 +120,7 @@ const AddFacility = () => {
           value="12pm"
           className="peer sr-only"
         />
-        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+        <div className="h-full border p-3 dark:border dark:border-gray-700 rounded-lg peer-checked:bg-emerald-50 peer-checked:border-emerald-500 dark:peer-checked:bg-emerald-900">
           12.00 PM
         </div>
       </label>
@@ -131,7 +131,7 @@ const AddFacility = () => {
           value="3pm"
           className="peer sr-only"
         />
-        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+        <div className="h-full border p-3 dark:border dark:border-gray-700 rounded-lg peer-checked:bg-emerald-50 peer-checked:border-emerald-500 dark:peer-checked:bg-emerald-900">
           3.00 PM
         </div>
       </label>
@@ -142,7 +142,7 @@ const AddFacility = () => {
           value="4pm"
           className="peer sr-only"
         />
-        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+        <div className="h-full border p-3 dark:border dark:border-gray-700 rounded-lg peer-checked:bg-emerald-50 peer-checked:border-emerald-500 dark:peer-checked:bg-emerald-900">
           4.00 PM
         </div>
       </label>
@@ -153,7 +153,7 @@ const AddFacility = () => {
           value="5pm"
           className="peer sr-only"
         />
-        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+        <div className="h-full border p-3 dark:border dark:border-gray-700 rounded-lg peer-checked:bg-emerald-50 peer-checked:border-emerald-500 dark:peer-checked:bg-emerald-900">
           5.00 PM
         </div>
       </label>
@@ -164,7 +164,7 @@ const AddFacility = () => {
           value="6pm"
           className="peer sr-only"
         />
-        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+        <div className="h-full border p-3 dark:border dark:border-gray-700 rounded-lg peer-checked:bg-emerald-50 peer-checked:border-emerald-500 dark:peer-checked:bg-emerald-900">
           6.00 PM
         </div>
       </label>
@@ -175,7 +175,7 @@ const AddFacility = () => {
           value="7pm"
           className="peer sr-only"
         />
-        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+        <div className="h-full border p-3 dark:border dark:border-gray-700 rounded-lg peer-checked:bg-emerald-50 peer-checked:border-emerald-500 dark:peer-checked:bg-emerald-900">
           7.00 PM
         </div>
       </label>
@@ -186,7 +186,7 @@ const AddFacility = () => {
           value="8pm"
           className="peer sr-only"
         />
-        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+        <div className="h-full border p-3 dark:border dark:border-gray-700 rounded-lg peer-checked:bg-emerald-50 peer-checked:border-emerald-500 dark:peer-checked:bg-emerald-900">
           8.00 PM
         </div>
       </label>
@@ -197,7 +197,7 @@ const AddFacility = () => {
           value="9pm"
           className="peer sr-only"
         />
-        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+        <div className="h-full border p-3 dark:border dark:border-gray-700 rounded-lg peer-checked:bg-emerald-50 peer-checked:border-emerald-500 dark:peer-checked:bg-emerald-900">
           9.00 PM
         </div>
       </label>
@@ -208,7 +208,7 @@ const AddFacility = () => {
           value="10pm"
           className="peer sr-only"
         />
-        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+        <div className="h-full border p-3 dark:border dark:border-gray-700 rounded-lg peer-checked:bg-emerald-50 peer-checked:border-emerald-500 dark:peer-checked:bg-emerald-900">
           10.00 PM
         </div>
       </label>
@@ -219,7 +219,7 @@ const AddFacility = () => {
           value="11pm"
           className="peer sr-only"
         />
-        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+        <div className="h-full border p-3 dark:border dark:border-gray-700 rounded-lg peer-checked:bg-emerald-50 peer-checked:border-emerald-500 dark:peer-checked:bg-emerald-900">
           11.00 PM
         </div>
       </label>
@@ -230,7 +230,7 @@ const AddFacility = () => {
           value="12pm"
           className="peer sr-only"
         />
-        <div className="border rounded-md p-3 peer-checked:bg-emerald-50 peer-checked:border-emerald-500">
+        <div className="h-full border p-3 dark:border dark:border-gray-700 rounded-lg peer-checked:bg-emerald-50 peer-checked:border-emerald-500 dark:peer-checked:bg-emerald-900">
           12.00 PM
         </div>
       </label>
@@ -292,7 +292,7 @@ const AddFacility = () => {
             </TextField>
             <Select
               isRequired
-              className="max-sm:col-span-3 col-span-2"
+              className="max-sm:col-span-3 col-span-2 "
               placeholder="Select one"
               onSelectionChange={(keys) => {
                 if (keys instanceof Set) {
