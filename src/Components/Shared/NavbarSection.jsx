@@ -60,6 +60,7 @@ const NavbarSection = () => {
             <Link href="/">
               <Image
                 src={users.image}
+                referrerPolicy="no-referrer"
                 alt="Profile Picture"
                 width={40}
                 height={40}

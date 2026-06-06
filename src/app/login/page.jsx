@@ -34,6 +34,12 @@ const LoginSection = () => {
       redirect("/");
     }
   };
+  const handleGoogleSignIn = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+    console.log(data);
+  };
   return (
     <div className="my-20  bg-[#003057] text-white w-3/12 mx-auto  p-4 rounded-lg">
       <div className="mx-auto">
@@ -72,7 +78,11 @@ const LoginSection = () => {
           </div>
         </Form>
         <Separator className="my-4"></Separator>
-        <Button variant="secondary" className="w-full mb-5">
+        <Button
+          onClick={handleGoogleSignIn}
+          variant="secondary"
+          className="w-full mb-5"
+        >
           <Image src="/google.png" alt="Google Logo" width={20} height={20} />
           Sign In GOOGLE
         </Button>
