@@ -14,7 +14,14 @@ import Image from "next/image";
 import React from "react";
 
 const AllFacilities = async () => {
-  const fecilities = await fetch("http://localhost:5000/product");
+  const { token } = await auth.api.getToken({
+    headers: await headers(),
+  });
+  const fecilities = await fetch("http://localhost:5000/product", {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  });
   const data = await fecilities.json();
   // console.log(data);
 

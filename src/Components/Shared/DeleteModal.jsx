@@ -6,9 +6,15 @@ import { useRouter } from "next/navigation";
 
 const DeleteModal = ({ id }) => {
   const router = useRouter();
+
   const handleDelete = async (id) => {
+    const { data: tokenData } = await authClient.token();
+
     const res = await fetch(`http://localhost:5000/product/${id}`, {
       method: "DELETE",
+      headers: {
+        authorization: `Bearer ${tokenData}`,
+      },
     });
     if (res.ok) {
       alert("Facility deleted successfully");

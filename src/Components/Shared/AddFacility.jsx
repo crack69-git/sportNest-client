@@ -253,10 +253,13 @@ const AddFacility = () => {
     const timeslots = formData.getAll("timeslots");
     if (timeslots.length) data.timeslots = timeslots;
     data.userId = userId;
+    const { data: tokenData } = await authClient.token();
+
     const res = await fetch("http://localhost:5000/product", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        authorization: `Bearer ${tokenData}`,
       },
       body: JSON.stringify(data),
     });

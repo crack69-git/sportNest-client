@@ -16,6 +16,7 @@ import {
   Select,
 } from "@heroui/react";
 import { useRouter } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
 const boxItem = (
   <>
     <ListBox.Item id="basketball" textValue="Basketball">
@@ -45,13 +46,15 @@ const EditModal = ({ facility, id }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-
+    const { data: tokenData } = await authClient.token();
+    // console.log("tokenData", tokenData);
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
     const res = await fetch(`http://localhost:5000/product/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
+        authorization: `Bearer ${tokenData}`,
       },
       body: JSON.stringify(data),
     });

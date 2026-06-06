@@ -4,15 +4,19 @@ import { CircleParkingOffIcon, FileX, Trash2 } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import { useRouter } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
 
 const MyBookingCard = ({ data }) => {
   const router = useRouter();
 
   const handleCencel = async (bookingId) => {
+    const { data: tokenData } = await authClient.token();
+    console.log("tokenData", tokenData);
     const res = await fetch(`http://localhost:5000/mybookings/${bookingId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
+        authorization: `Bearer ${tokenData}`,
       },
     });
     const data = await res.json();
