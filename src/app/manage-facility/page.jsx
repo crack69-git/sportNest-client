@@ -13,7 +13,7 @@ const ManageFacility = async () => {
   });
 
   const fetchFacilities = await fetch(
-    `http://localhost:5000/manageFacilities/${session.user.id}`,
+    `http://localhost:5000/manageFacilities/${session?.user?.id}`,
   );
 
   const facilities = await fetchFacilities.json();

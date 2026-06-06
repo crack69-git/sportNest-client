@@ -1,15 +1,24 @@
 import BokkingForm from "@/Components/Shared/BokkingForm";
 import BookSection from "@/Components/Shared/BookSection";
 import StartTime from "@/Components/Shared/StartTime";
+import { auth } from "@/lib/auth";
 import { Separator } from "@heroui/react";
 import { MapPin, User } from "lucide-react";
+import { headers } from "next/headers";
 import Image from "next/image";
 import React from "react";
 
 const DetailsPage = async ({ params }) => {
   const { id } = await params;
-  // console.log(id);
-  const facility = await fetch(`http://localhost:5000/product/${id}`);
+  const { token } = await auth.api.getToken({
+    headers: await headers(),
+  });
+  // console.log(token);
+  const facility = await fetch(`http://localhost:5000/product/${id}`, {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  });
   //   const facilityData = await facility.json();
   const data = await facility.json();
   // console.log(data);

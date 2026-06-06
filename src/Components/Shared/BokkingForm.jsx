@@ -25,7 +25,7 @@ const BokkingForm = ({ data }) => {
     const price = hours * data.price;
     setTotalPrice(price);
   };
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const formdata = Object.fromEntries(formData.entries());
@@ -50,11 +50,13 @@ const BokkingForm = ({ data }) => {
       totalPrice: totalPrice,
       status: "pending",
     };
-    console.log("bookingData", bookingData);
+    const { data: tokenData } = await authClient.token();
+    console.log("tokenData", tokenData);
     const booking = fetch("http://localhost:5000/mybookings", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        authorization: `Bearer ${tokenData}`,
       },
       body: JSON.stringify(bookingData),
     });
