@@ -26,14 +26,14 @@ const MyBookingPage = async () => {
   const data = await fetchMyBookings.json();
 
   return (
-    <div className="bg-gray-100 min-h-[calc(90vh-25px)] py-8">
+    <div className="bg-gray-100 dark:bg-gray-950 min-h-[calc(90vh-25px)] py-8">
       <div className="w-11/12 mx-auto">
         <h2 className="text-3xl font-bold">My Bookings</h2>
-        <p className="text-lg text-gray-600 font-semibold mb-10">
+        <p className="text-lg text-gray-600 dark:text-gray-400 font-semibold ">
           Keep track of your active game times and past victories.
         </p>
         <div>{/* <ul className="flex gap-5">{toogle}</ul> */}</div>
-        <Separator className="my-5 bg-gray-300" />
+        <Separator className="my-5 bg-gray-300 dark:bg-gray-700" />
         <div>
           <MyBookingCard data={data} />
         </div>

@@ -31,7 +31,7 @@ const MyBookingCard = ({ data }) => {
 
   return (
     <>
-      <div className="bg-gray-100">
+      <div className="bg-gray-100 dark:bg-gray-950 rounded-lg">
         {data.length > 0 ? (
           data.map((booking) => (
             <Card
