@@ -3,8 +3,8 @@ import React from "react";
 
 const SubscriptionSection = () => {
   return (
-    <div className="text-blue-900 flex flex-col items-center justify-center py-16 px-4">
-      <h2 className="text-4xl font-bold">Ready to Dominate?</h2>
+    <div className="text-blue-900 flex flex-col items-center dark:text-white justify-center py-16 px-4">
+      <h2 className="text-4xl font-bold ">Ready to Dominate?</h2>
       <p className="text-lg text-center">
         Join thousands of athletes who trust SportNest for their facility
         management. Get in the zone today.

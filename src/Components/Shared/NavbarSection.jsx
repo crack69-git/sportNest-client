@@ -5,6 +5,7 @@ import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import ToogleTheme from "./ToogleTheme";
 
 const NavbarSection = () => {
   const [state, setState] = useState(false);
@@ -33,12 +34,12 @@ const NavbarSection = () => {
     </>
   );
   return (
-    <div className="flex  items-center justify-between   p-3 bg-[#003057] text-white">
+    <div className="flex  items-center justify-between   p-3 bg-[#003057] text-white dark:bg-[#011a30]">
       <div className="flex items-center gap-2">
         <div className="cursor-pointer max-[928px]:block hidden">
           <Menu onClick={() => setState(!state)}></Menu>
           {state ? (
-            <div className="z-20 absolute top-16 left-0 bg-[#003057] text-white p-4 ">
+            <div className="z-20 absolute top-16 left-0 bg-[#003057] dark:bg-[#011a30] rounded-2xl ml-2 text-white p-4 ">
               <ul className="flex flex-col gap-2">{links}</ul>
             </div>
           ) : null}
@@ -49,7 +50,8 @@ const NavbarSection = () => {
       <div>
         <ul className="flex gap-4 max-[928px]:hidden">{links}</ul>
       </div>
-      <div className="flex gap-2 max-sm:mt-5">
+      <div className="flex items-center gap-2 max-sm:mt-5">
+        <ToogleTheme />
         {isPending ? (
           <div className="flex items-center gap-2">
             <span className="animate-spin border-2 border-white border-t-transparent rounded-full w-6 h-6"></span>
@@ -77,7 +79,7 @@ const NavbarSection = () => {
               onClick={async () => {
                 await authClient.signOut();
               }}
-              className="bg-white hover:bg-gray-200 text-black py-2 px-4 rounded"
+              className="bg-white dark:bg-[#434d55] dark:text-white dark:hover:bg-gray-500 cursor-pointer hover:bg-gray-300 font-semibold text-black py-2 px-4 rounded"
             >
               Logout
             </button>

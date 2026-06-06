@@ -20,7 +20,7 @@ const EngagementSection = () => {
               variant="secondary"
               className="rounded-lg flex flex-col py-15 px-20 gap-0 max-[520px]:p-10"
             >
-              <p className="text-2xl font-bold">10k+</p>
+              <p className="text-2xl font-bold ">10k+</p>
               <p>Games Booked</p>
             </Button>
 

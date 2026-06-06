@@ -26,7 +26,7 @@ const AllFacilityCard = ({ facility }) => {
           className="w-fit mx-auto h-36 rounded-2xl"
         />
         <Card.Header>
-          <Card.Title className="bg-blue-200 w-fit px-4 mt-4 rounded-4xl">
+          <Card.Title className="bg-blue-200 dark:bg-blue-400 w-fit px-4 mt-4 rounded-4xl">
             {facilitytype}
           </Card.Title>
           <div className="flex justify-between items-start ">
