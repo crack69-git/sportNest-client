@@ -27,7 +27,7 @@ const DeleteModal = ({ id }) => {
     <Modal>
       <Button
         variant="secondary"
-        className="bg-red-100 rounded-lg border border-red-300 hover:bg-red-500 hover:text-white"
+        className="bg-red-400 rounded-lg border border-red-500 dark:bg-red-500 dark:hover:bg-red-600 text-white hover:bg-red-500 hover:text-white"
       >
         Delete
       </Button>

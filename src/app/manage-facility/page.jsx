@@ -27,23 +27,31 @@ const ManageFacility = async () => {
   // console.log(facilities);
 
   return (
-    <div className="bg-gray-100 min-h-[calc(90vh-25px)] py-5">
+    <div className="bg-gray-100 dark:bg-gray-950 min-h-[calc(90vh-25px)] py-5">
       <div className="w-11/12 mx-auto">
         <div className="grid max-sm:grid-cols-2 grid-cols-4 items-center gap-5">
-          <div className="bg-white rounded-lg p-5 w-full text-center border">
-            <p className="font-semibold text-gray-600">Total Facilities</p>
+          <div className="bg-white dark:bg-gray-800 dark:border dark:border-gray-600 rounded-lg p-5 w-full text-center border">
+            <p className="font-semibold text-gray-600 dark:text-gray-400">
+              Total Facilities
+            </p>
             <p className="text-2xl font-bold">{facilities.length}</p>
           </div>
-          <div className="bg-white rounded-lg p-5   w-full text-center border">
-            <p className="font-semibold text-gray-600">Active Booking</p>
+          <div className="bg-white dark:bg-gray-800 dark:border dark:border-gray-600 rounded-lg p-5   w-full text-center border">
+            <p className="font-semibold text-gray-600 dark:text-gray-400">
+              Active Booking
+            </p>
             <p className="text-2xl font-bold">0</p>
           </div>
-          <div className="bg-white rounded-lg p-5   w-full text-center border">
-            <p className="font-semibold text-gray-600">Revenue</p>
+          <div className="bg-white dark:bg-gray-800 dark:border dark:border-gray-600 rounded-lg p-5   w-full text-center border">
+            <p className="font-semibold text-gray-600 dark:text-gray-400">
+              Revenue
+            </p>
             <p className="text-2xl font-bold">0</p>
           </div>
-          <div className="bg-white rounded-lg p-5   w-full text-center flex flex-col items-center gap-2 border">
-            <p className="font-semibold text-gray-600">Rating</p>
+          <div className="bg-white dark:bg-gray-800 dark:border dark:border-gray-600 rounded-lg p-5   w-full text-center flex flex-col items-center gap-2 border">
+            <p className="font-semibold text-gray-600 dark:text-gray-400">
+              Rating
+            </p>
             <p className="text-2xl font-bold flex items-center gap-2">
               4.5<Star></Star>
             </p>
@@ -56,7 +64,7 @@ const ManageFacility = async () => {
               facilities.map((facility) => (
                 <Card
                   key={facility._id}
-                  className="w-full items-stretch md:flex-row"
+                  className="w-full items-stretch md:flex-row dark:border dark:border-gray-700 mb-3 bg-white dark:bg-gray-800 rounded-2xl"
                 >
                   <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
                     <Image
