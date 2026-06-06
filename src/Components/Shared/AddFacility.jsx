@@ -246,7 +246,7 @@ const AddFacility = () => {
       alert("Please select a facility type.");
       return;
     }
-    console.log("Form submitted");
+    // console.log("Form submitted");
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
     // collect multiple selected timeslots (checkboxes named `timeslots`)
@@ -263,7 +263,7 @@ const AddFacility = () => {
       },
       body: JSON.stringify(data),
     });
-    console.log("Response:", res);
+    // console.log("Response:", res);
     if (res.ok) {
       alert("Facility added successfully!");
       router.refresh();

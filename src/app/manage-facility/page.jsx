@@ -24,7 +24,7 @@ const ManageFacility = async () => {
   );
 
   const facilities = await fetchFacilities.json();
-  console.log(facilities);
+  // console.log(facilities);
 
   return (
     <div className="bg-gray-100 min-h-[calc(90vh-25px)] py-5">

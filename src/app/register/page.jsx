@@ -19,9 +19,6 @@ const RegisterPage = () => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const user = Object.fromEntries(formData.entries());
-    // const { name, email, imageLink, password } = data;
-
-    console.log(user);
     const { data, error } = await authClient.signUp.email({
       name: user.name, // required
       email: user.email, // required

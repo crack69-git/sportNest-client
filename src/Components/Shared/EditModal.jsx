@@ -58,7 +58,7 @@ const EditModal = ({ facility, id }) => {
       },
       body: JSON.stringify(data),
     });
-    console.log(res);
+    // console.log(res);
     if (res.ok) {
       alert("Facility updated successfully!");
       router.refresh();

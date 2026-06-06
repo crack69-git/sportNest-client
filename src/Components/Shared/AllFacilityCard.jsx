@@ -14,7 +14,7 @@ const AllFacilityCard = ({ facility }) => {
     price,
     capacity,
   } = facility;
-  console.log(_id);
+  // console.log(_id);
   return (
     <div className="flex flex-wrap gap-4">
       <Card className="w-full h-full gap-2 border">

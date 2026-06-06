@@ -11,7 +11,7 @@ const MyBookingCard = ({ data }) => {
 
   const handleCencel = async (bookingId) => {
     const { data: tokenData } = await authClient.token();
-    console.log("tokenData", tokenData);
+    // console.log("tokenData", tokenData);
     const res = await fetch(`http://localhost:5000/mybookings/${bookingId}`, {
       method: "DELETE",
       headers: {
@@ -20,7 +20,7 @@ const MyBookingCard = ({ data }) => {
       },
     });
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
     if (res.ok) {
       alert("Booking cancelled successfully");
       router.refresh();
