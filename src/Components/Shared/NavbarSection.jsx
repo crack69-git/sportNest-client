@@ -45,7 +45,7 @@ const NavbarSection = () => {
           ) : null}
         </div>
         <Image src="/logo.png" alt="Logo" width={40} height={40} />
-        <h2 className="text-2xl font-bold">SportNest</h2>
+        <h2 className="text-2xl font-bold max-sm:text-lg">SportNest</h2>
       </div>
       <div>
         <ul className="flex gap-4 max-[928px]:hidden">{links}</ul>

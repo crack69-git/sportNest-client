@@ -5,14 +5,7 @@ import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 
 const FeatureCardSection = async () => {
-  const { token } = await auth.api.getToken({
-    headers: await headers(),
-  });
-  const fetchData = await fetch("http://localhost:5000/product", {
-    headers: {
-      authorization: `Bearer ${token}`,
-    },
-  });
+  const fetchData = await fetch("http://localhost:5000/product", {});
   const data = await fetchData.json();
   // console.log(data);
   return (

@@ -7,6 +7,7 @@ import {
   ShieldCheckIcon,
 } from "lucide-react";
 import Link from "next/link";
+import MotionButtom from "./MotionButtom";
 
 const HeroSection = () => {
   return (
@@ -40,11 +41,7 @@ const HeroSection = () => {
                 your next big win.
               </p>
               <div className="flex items-center max-sm:mt-2 gap-3 mt-5">
-                <Link href="/all-facilities">
-                  <Button className=" rounded-lg bg-blue-900 text-xl p-6">
-                    Explore More
-                  </Button>
-                </Link>
+                <MotionButtom></MotionButtom>
               </div>
             </div>
             <div className="flex gap-4 max-[1168px]:hidden">

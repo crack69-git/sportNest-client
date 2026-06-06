@@ -20,14 +20,7 @@ export const metadata = {
     "Explore our extensive directory of sports facilities at SportNest. From state-of-the-art gyms to outdoor fields, find the perfect venue for your next game or practice session. Our comprehensive listings include detailed information, user reviews, and easy booking options. Whether you're looking for a local court or a professional stadium, SportNest has you covered. Start your search today and elevate your sports experience with us!",
 };
 const AllFacilities = async () => {
-  const { token } = await auth.api.getToken({
-    headers: await headers(),
-  });
-  const fecilities = await fetch("http://localhost:5000/product", {
-    headers: {
-      authorization: `Bearer ${token}`,
-    },
-  });
+  const fecilities = await fetch("http://localhost:5000/product");
   const data = await fecilities.json();
   return (
     <div className="bg-gray-10 pt-10 min-h-[calc(100vh-8rem)]">

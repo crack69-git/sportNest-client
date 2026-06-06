@@ -133,7 +133,7 @@ const MyBookingCard = ({ data }) => {
             </Card>
           ))
         ) : (
-          <div className="w-3/5 mx-auto text-center flex flex-col py-20 justify-center items-center gap-2 rounded-lg border bg-white">
+          <div className=" mx-auto text-center flex flex-col py-20 justify-center items-center gap-2 rounded-lg border bg-white dark:bg-gray-800">
             <FileX className="h-20 w-22" />
             <span className="text-xl">No bookings found</span>
           </div>

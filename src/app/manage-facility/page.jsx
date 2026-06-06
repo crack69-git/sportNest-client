@@ -2,9 +2,10 @@ import DeleteModal from "@/Components/Shared/DeleteModal";
 import EditModal from "@/Components/Shared/EditModal";
 import { auth } from "@/lib/auth";
 import { Button, Card, CloseButton, Table } from "@heroui/react";
-import { MapPin, Star } from "lucide-react";
+import { FileX, MapPin, Star } from "lucide-react";
 import { headers } from "next/headers";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const ManageFacility = async () => {
@@ -105,7 +106,18 @@ const ManageFacility = async () => {
                 </Card>
               ))
             ) : (
-              <p>No facilities found.</p>
+              <div className=" mx-auto text-center flex flex-col py-20 justify-center items-center gap-2 rounded-lg border bg-white dark:bg-gray-800">
+                <FileX className="h-20 w-22" />
+                <span className="text-xl">No facilities found</span>
+                <Link href="/add-facility">
+                  <Button
+                    variant="outline"
+                    className="mt-5 bg-green-700 rounded-lg text-white"
+                  >
+                    Add Facility
+                  </Button>
+                </Link>
+              </div>
             )}
           </div>
         </div>
