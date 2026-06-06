@@ -14,7 +14,11 @@ import { CheckLine, Group, MapPin, Users } from "lucide-react";
 import { headers } from "next/headers";
 import Image from "next/image";
 import React from "react";
-
+export const metadata = {
+  title: "All Facilities - SportNest",
+  description:
+    "Explore our extensive directory of sports facilities at SportNest. From state-of-the-art gyms to outdoor fields, find the perfect venue for your next game or practice session. Our comprehensive listings include detailed information, user reviews, and easy booking options. Whether you're looking for a local court or a professional stadium, SportNest has you covered. Start your search today and elevate your sports experience with us!",
+};
 const AllFacilities = async () => {
   const { token } = await auth.api.getToken({
     headers: await headers(),
@@ -25,22 +29,19 @@ const AllFacilities = async () => {
     },
   });
   const data = await fecilities.json();
-  // console.log(data);
-
-  // console.log("console", facilitytype, facilityname, imageLink);
   return (
     <div className="bg-gray-10 pt-10 min-h-[calc(100vh-8rem)]">
       <div className="w-11/12 mx-auto">
         <h3 className="text-3xl font-bold">All Sports Facilities</h3>
-        <p className="text-lg font-medium text-gray-600 mb-5">
+        <p className="text-lg font-medium text-gray-600 dark:text-gray-400 mb-5">
           Discover and book high-performance venues for your next match. From
           professional tennis courts to FIFA-standard pitches.
         </p>
-        <div className="grid max-sm:grid-cols-1 grid-cols-6 gap-4 items-center bg-gray-300 p-6 rounded-3xl border border-gray-400">
+        <div className="grid max-sm:grid-cols-1 grid-cols-6 gap-4 items-center bg-gray-300 dark:bg-gray-900 border p-6 rounded-3xl ">
           <SearchField
             aria-label=""
             name="search"
-            className="max-sm:col-span-1 col-span-3"
+            className="max-sm:col-span-1 col-span-3 border rounded-lg"
           >
             <SearchField.Group>
               <SearchField.SearchIcon />
@@ -49,7 +50,7 @@ const AllFacilities = async () => {
             </SearchField.Group>
           </SearchField>
           <div className="col-span-1">
-            <Select className="" placeholder="Select one">
+            <Select className="border rounded-lg" placeholder="Select one">
               <Select.Trigger>
                 <Select.Value />
                 <Select.Indicator />
@@ -85,7 +86,7 @@ const AllFacilities = async () => {
             </Select>
           </div>
           <div className="col-span-1">
-            <Select className="" placeholder="Select one">
+            <Select className="border rounded-lg" placeholder="Select one">
               <Select.Trigger>
                 <Select.Value />
                 <Select.Indicator />
@@ -120,7 +121,7 @@ const AllFacilities = async () => {
               </Select.Popover>
             </Select>
           </div>
-          <Button className="p-6 w-full bg-[#003057]">
+          <Button className="p-6 w-full bg-[#003057] rounded-lg">
             {" "}
             <CheckLine />
             Apply filters

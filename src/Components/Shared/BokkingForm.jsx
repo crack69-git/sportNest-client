@@ -88,7 +88,10 @@ const BokkingForm = ({ data }) => {
         />
       </div>
       <div>
-        <Card className="w-full border flex" variant="default">
+        <Card
+          className="w-full  dark:border dark:border-gray-700 flex"
+          variant="default"
+        >
           <p>Total Price: </p>
           <p>${totalPrice.toFixed(2) || "0.00"}</p>
         </Card>
