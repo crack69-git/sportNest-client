@@ -10,12 +10,15 @@ const DeleteModal = ({ id }) => {
   const handleDelete = async (id) => {
     const { data: tokenData } = await authClient.token();
 
-    const res = await fetch(`http://localhost:5000/product/${id}`, {
-      method: "DELETE",
-      headers: {
-        authorization: `Bearer ${tokenData}`,
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/product/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          authorization: `Bearer ${tokenData}`,
+        },
       },
-    });
+    );
     if (res.ok) {
       toast.success("Facility deleted successfully");
       router.refresh();

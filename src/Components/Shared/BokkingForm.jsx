@@ -52,7 +52,7 @@ const BokkingForm = ({ data }) => {
     };
     const { data: tokenData } = await authClient.token();
     console.log("tokenData", tokenData);
-    const booking = fetch("http://localhost:5000/mybookings", {
+    const booking = fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/mybookings`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

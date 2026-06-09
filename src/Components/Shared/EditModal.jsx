@@ -50,14 +50,17 @@ const EditModal = ({ facility, id }) => {
     // console.log("tokenData", tokenData);
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
-    const res = await fetch(`http://localhost:5000/product/${id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${tokenData}`,
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/product/${id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${tokenData}`,
+        },
+        body: JSON.stringify(data),
       },
-      body: JSON.stringify(data),
-    });
+    );
     // console.log(res);
     if (res.ok) {
       toast.success("Facility updated successfully!");

@@ -5,7 +5,10 @@ import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 
 const FeatureCardSection = async () => {
-  const fetchData = await fetch("http://localhost:5000/product", {});
+  const fetchData = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/feature`,
+    {},
+  );
   const data = await fetchData.json();
   // console.log(data);
   return (

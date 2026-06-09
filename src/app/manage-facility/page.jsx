@@ -16,7 +16,7 @@ const ManageFacility = async () => {
     headers: await headers(),
   });
   const fetchFacilities = await fetch(
-    `http://localhost:5000/manageFacilities/${session?.user?.id}`,
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/manageFacilities/${session?.user?.id}`,
     {
       headers: {
         authorization: `Bearer ${token}`,

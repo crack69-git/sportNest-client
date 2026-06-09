@@ -14,11 +14,14 @@ const DetailsPage = async ({ params }) => {
     headers: await headers(),
   });
   // console.log(token);
-  const facility = await fetch(`http://localhost:5000/product/${id}`, {
-    headers: {
-      authorization: `Bearer ${token}`,
+  const facility = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/product/${id}`,
+    {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
     },
-  });
+  );
   //   const facilityData = await facility.json();
   const data = await facility.json();
   // console.log(data);

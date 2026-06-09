@@ -12,13 +12,16 @@ const MyBookingCard = ({ data }) => {
   const handleCencel = async (bookingId) => {
     const { data: tokenData } = await authClient.token();
     // console.log("tokenData", tokenData);
-    const res = await fetch(`http://localhost:5000/mybookings/${bookingId}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${tokenData}`,
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/mybookings/${bookingId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${tokenData}`,
+        },
       },
-    });
+    );
     const data = await res.json();
     // console.log(data);
     if (res.ok) {
