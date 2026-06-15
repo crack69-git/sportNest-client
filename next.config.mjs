@@ -10,16 +10,18 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "cdn.pixabay.com",
-        port: "",
-        pathname: "/**",
-        search: "",
       },
       {
         protocol: "https",
         hostname: "lh3.googleusercontent.com",
-        port: "",
-        pathname: "/**",
-        search: "",
+      },
+      {
+        protocol: "https",
+        hostname: "sportz-server.vercel.app", // if your backend serves images
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com", // if you use Cloudinary
       },
     ],
   },
