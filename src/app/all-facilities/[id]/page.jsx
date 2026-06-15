@@ -13,7 +13,7 @@ const DetailsPage = async ({ params }) => {
   const { token } = await auth.api.getToken({
     headers: await headers(),
   });
-  // console.log(token);
+  console.log(token, id);
   const facility = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER_URL}/product/${id}`,
     {
@@ -22,9 +22,10 @@ const DetailsPage = async ({ params }) => {
       },
     },
   );
+  console.log(facility.status);
   //   const facilityData = await facility.json();
   const data = await facility.json();
-  // console.log("data", data);
+  console.log("data", data);
 
   return (
     <div className="bg-gray-100 dark:bg-gray-950 min-h-[calc(100vh-8rem)]">
