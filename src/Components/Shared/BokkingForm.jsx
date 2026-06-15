@@ -15,6 +15,7 @@ import {
 } from "@heroui/react";
 import { authClient } from "@/lib/auth-client";
 import { redirect } from "next/navigation";
+import { toast } from "react-toastify";
 
 const BokkingForm = ({ data }) => {
   const [totalPrice, setTotalPrice] = useState(0);
@@ -52,15 +53,21 @@ const BokkingForm = ({ data }) => {
     };
     const { data: tokenData } = await authClient.token();
     console.log("tokenData", tokenData);
-    const booking = fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/mybookings`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${tokenData}`,
+    const token = tokenData?.token;
+    const booking = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/mybookings`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(bookingData),
       },
-      body: JSON.stringify(bookingData),
-    });
-    if (booking) {
+    );
+    const result = await booking.json();
+
+    if (result) {
       toast.success("Booking successful!");
       redirect("/my-booking");
     } else {

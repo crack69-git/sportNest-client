@@ -5,6 +5,7 @@ import Image from "next/image";
 import React from "react";
 import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
+import { toast } from "react-toastify";
 
 const MyBookingCard = ({ data }) => {
   const router = useRouter();
@@ -36,9 +37,9 @@ const MyBookingCard = ({ data }) => {
     <>
       <div className="bg-gray-100 dark:bg-gray-950 rounded-lg">
         {data.length > 0 ? (
-          data.map((booking) => (
+          data.map((booking, index) => (
             <Card
-              key={booking.id}
+              key={index}
               className="w-full items-stretch md:flex-row mb-3 "
             >
               <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">

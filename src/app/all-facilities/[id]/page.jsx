@@ -24,7 +24,7 @@ const DetailsPage = async ({ params }) => {
   );
   //   const facilityData = await facility.json();
   const data = await facility.json();
-  // console.log(data);
+  console.log(data);
 
   return (
     <div className="bg-gray-100 dark:bg-gray-950 min-h-[calc(100vh-8rem)]">
@@ -33,6 +33,7 @@ const DetailsPage = async ({ params }) => {
           <div>
             <Image
               src={data.imageLink}
+              loading="eager"
               alt="Turf Image"
               width={400}
               height={200}
