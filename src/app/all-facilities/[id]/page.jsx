@@ -33,7 +33,7 @@ const DetailsPage = async ({ params }) => {
           <div>
             <Image
               src={data?.imageLink}
-              loading="eager"
+              loading="lazy"
               alt="Turf Image"
               width={400}
               height={200}
