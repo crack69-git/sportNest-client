@@ -40,6 +40,7 @@ const DetailsPage = async ({ params }) => {
             />
           </div>
           <div className="bg-white dark:bg-gray-800 rounded-3xl p-5 border">
+            <p>{token}</p>
             <h1 className="text-3xl font-bold">{data?.facilityname}</h1>
             <p className="text-gray-600 dark:text-gray-400 flex items-center gap-2 mt-2">
               <MapPin></MapPin>

@@ -37,7 +37,7 @@ const AllFacilityCard = ({ facility }) => {
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold">${price}/hour</h3>
+              <h3 className="text-xl font-semibold">${price}/h</h3>
             </div>
           </div>
         </Card.Header>

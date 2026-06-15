@@ -1,8 +1,10 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import { Rocket } from "@gravity-ui/icons";
 import { Button, Modal } from "@heroui/react";
 import { Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const DeleteModal = ({ id }) => {
   const router = useRouter();
