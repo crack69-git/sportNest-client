@@ -52,7 +52,7 @@ const BokkingForm = ({ data }) => {
       status: "pending",
     };
     const { data: tokenData } = await authClient.token();
-    console.log("tokenData", tokenData);
+    // console.log("tokenData", tokenData);
     const token = tokenData?.token;
     const booking = await fetch(
       `${process.env.NEXT_PUBLIC_SERVER_URL}/mybookings`,
