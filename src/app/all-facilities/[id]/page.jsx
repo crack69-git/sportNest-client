@@ -1,6 +1,4 @@
 import BokkingForm from "@/Components/Shared/BokkingForm";
-import BookSection from "@/Components/Shared/BookSection";
-import StartTime from "@/Components/Shared/StartTime";
 import { auth } from "@/lib/auth";
 import { Separator } from "@heroui/react";
 import { MapPin, User } from "lucide-react";
@@ -22,7 +20,7 @@ const DetailsPage = async ({ params }) => {
       },
     },
   );
-  console.log(facility.status);
+  console.log(facility);
   //   const facilityData = await facility.json();
   const data = await facility.json();
   console.log("data", data);
