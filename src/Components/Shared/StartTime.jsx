@@ -1,6 +1,9 @@
 import React from "react";
 import { Label, ListBox, Select } from "@heroui/react";
 const StartTime = ({ data }) => {
+  // console.log("data", data);
+  const timeslots = data.timeslots;
+  console.log("timeslots", timeslots);
   return (
     <div>
       <Select name="startTime" className="w-full mt-5" placeholder="Select one">
@@ -11,7 +14,7 @@ const StartTime = ({ data }) => {
         </Select.Trigger>
         <Select.Popover>
           <ListBox>
-            {data.timeslots.map((slot, index) => (
+            {timeslots.map((slot, index) => (
               <ListBox.Item key={index} id={slot} textValue={slot}>
                 {slot}
               </ListBox.Item>
