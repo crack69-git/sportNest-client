@@ -24,6 +24,10 @@ const AddFacility = () => {
 
   const boxItem = (
     <>
+      <ListBox.Item id="football" textValue="Football">
+        Football
+        <ListBox.ItemIndicator />
+      </ListBox.Item>
       <ListBox.Item id="basketball" textValue="Basketball">
         Basketball
         <ListBox.ItemIndicator />

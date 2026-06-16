@@ -22,6 +22,7 @@ const DeleteModal = ({ id }) => {
       {
         method: "DELETE",
         headers: {
+          "Content-Type": "application/json",
           authorization: `Bearer ${tokenData.token}`,
         },
       },
