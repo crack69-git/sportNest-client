@@ -26,3 +26,5 @@ The purpose of SportNest is to provide a centralized digital platform that enabl
 ➡️ React-toastify
 ➡️ Next-themes
 ➡️ jose-cjs
+➡️ Nodemon
+➡️ Express
