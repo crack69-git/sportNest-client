@@ -10,7 +10,12 @@ const DeleteModal = ({ id }) => {
   const router = useRouter();
 
   const handleDelete = async (id) => {
-    const { data: tokenData } = await authClient.token();
+    const { data: tokenData, error } = await authClient.token();
+
+    if (error) {
+      toast.error("Failed to fetch authentication token");
+      return;
+    }
 
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_SERVER_URL}/product/${id}`,
