@@ -22,7 +22,7 @@ const DeleteModal = ({ id }) => {
       {
         method: "DELETE",
         headers: {
-          authorization: `Bearer ${tokenData}`,
+          authorization: `Bearer ${tokenData.token}`,
         },
       },
     );

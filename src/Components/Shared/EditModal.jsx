@@ -57,7 +57,7 @@ const EditModal = ({ facility, id }) => {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
-          authorization: `Bearer ${tokenData}`,
+          authorization: `Bearer ${tokenData.token}`,
         },
         body: JSON.stringify(data),
       },

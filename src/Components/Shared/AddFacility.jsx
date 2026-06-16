@@ -15,7 +15,7 @@ import { FloppyDisk } from "@gravity-ui/icons";
 import { ClockAlert, Mail, Pencil, RotateCcw } from "lucide-react";
 import React, { useState } from "react";
 import { authClient } from "@/lib/auth-client";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
 const AddFacility = () => {
@@ -260,7 +260,8 @@ const AddFacility = () => {
     });
     if (res.ok) {
       toast.success("Facility added successfully!");
-      router.refresh();
+      redirect("/manage-facility");
+      // router.refresh();
     } else {
       toast.error("Failed to add facility. Please try again.");
     }
