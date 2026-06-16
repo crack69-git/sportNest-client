@@ -7,7 +7,11 @@ import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-
+export const metadata = {
+  title: "Manage Facilities - SportNest",
+  description:
+    "Manage your sports facilities on SportNest. Update details, view bookings, and keep your listings up-to-date with our easy-to-use management tools.",
+};
 const ManageFacility = async () => {
   const session = await auth.api.getSession({
     headers: await headers(), // you need to pass the headers

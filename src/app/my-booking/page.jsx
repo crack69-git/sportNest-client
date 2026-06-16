@@ -5,7 +5,11 @@ import { Separator } from "@heroui/react";
 import { headers } from "next/headers";
 
 import React from "react";
-
+export const metadata = {
+  title: "My Booking - SportNest",
+  description:
+    "View and manage your sports facility bookings with ease on SportNest. Access your personalized dashboard to see all your upcoming reservations, past bookings, and current statuses. Whether you're tracking your next game or reviewing your booking history, SportNest provides a seamless experience to keep you organized and informed. Stay on top of your sports schedule and never miss a match with our intuitive booking management system.",
+};
 const MyBookingPage = async () => {
   const session = await auth.api.getSession({
     headers: await headers(), // you need to pass the headers object.

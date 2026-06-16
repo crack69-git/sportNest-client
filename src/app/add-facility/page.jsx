@@ -5,7 +5,11 @@ import { BadgeCheck, Info, Pencil } from "lucide-react";
 import { headers } from "next/headers";
 import Image from "next/image";
 import React from "react";
-
+export const metadata = {
+  title: "Add Facility - SportNest",
+  description:
+    "Add your sports facility to our directory and reach thousands of athletes looking for the perfect place to train, compete, and grow. Join our community of facility owners and expand your reach with SportNest.",
+};
 const AddFacilityPage = async () => {
   const session = await auth.api.getSession({
     headers: await headers(), // you need to pass the headers object.

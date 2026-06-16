@@ -6,6 +6,11 @@ import { headers } from "next/headers";
 import Image from "next/image";
 import React from "react";
 
+export const metadata = {
+  title: "Facility Details - SportNest",
+  description:
+    "Discover the details of your chosen sports facility on SportNest. From location and amenities to pricing and availability, get all the information you need to make an informed booking decision. Explore our comprehensive facility profiles and find the perfect venue for your next game or practice session.",
+};
 const DetailsPage = async ({ params }) => {
   const { id } = await params;
   const { token } = await auth.api.getToken({
@@ -40,7 +45,6 @@ const DetailsPage = async ({ params }) => {
             />
           </div>
           <div className="bg-white dark:bg-gray-800 rounded-3xl p-5 border">
-            <p>{token}</p>
             <h1 className="text-3xl font-bold">{data?.facilityname}</h1>
             <p className="text-gray-600 dark:text-gray-400 flex items-center gap-2 mt-2">
               <MapPin></MapPin>
